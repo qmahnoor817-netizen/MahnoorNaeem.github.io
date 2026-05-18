@@ -17,8 +17,10 @@ Click here to view my interactive website: https://github.com/qmahnoor817-netize
 * **Tools:** Git, GitHub, Android Studio, VS Code
 
  ## 🎓 Education & Certifications
-*   **Bachelors in Information Technology (BS IT)** | viqar-un-nisa college for women (Ongoing)
+*   **Bachelors in Information Technology (BS IT)** | viqar-un-nisa college for women (Ongoing 2023-2027)
 *   **Mobile App Development Certification** | Bano Qabil Institute (2026)
+*   **Web Development & Graphic designing Certification** | Viqar-un-Nisa (2023)
+*   **CyberSecurity Certification** | Google Career Certificates Coursera (2025)  
 
 ## 📩 Connect With Me
 *   **GitHub:** https://github.com/qmahnoor817-netizen
