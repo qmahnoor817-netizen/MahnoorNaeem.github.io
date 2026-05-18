@@ -1,6 +1,7 @@
 # Mahnoor Naeem | Mobile App Developer Portfolio
 
 Welcome to my professional portfolio repository. This repository contains the source code for my live portfolio website, which showcases the mobile application projects I built during my Bachelors in IT and my Mobile App Development training at the Bano Qabil Institute.
+ "I am a Mobile App Developer with a multidisciplinary tech background. My training in Web Development and Graphic Design allows me to create stunning, responsive user interfaces, while my knowledge of Cybersecurity ensures that the mobile applications I build are secure, protecting user data from common vulnerabilities."
 
 ## 🌐 Live Portfolio Link
 Click here to view my interactive website: https://github.com/qmahnoor817-netizen/MahnoorNaeem.github.io
