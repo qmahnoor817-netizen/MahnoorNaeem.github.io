@@ -5,103 +5,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahnoor Naeem | Mobile App Developer Portfolio</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f9f9f9; }
-        header { background: #1a1a2e; color: #fff; text-align: center; padding: 3rem 1rem; }
-        header h1 { margin: 0; font-size: 2.5rem; color: #00fff0; }
-        header p { margin: 5px 0 0; font-size: 1.2rem; opacity: 0.9; }
-        .container { max-width: 1100px; margin: auto; padding: 2rem 1rem; }
-        h2 { border-bottom: 2px solid #1a1a2e; padding-bottom: 0.5rem; color: #1a1a2e; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
-        .card { background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
-        .project-content { margin-bottom: 1rem; }
-        .tech-badge { background: #e0e0e0; color: #333; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; margin-right: 5px; display: inline-block; }
-        .screenshot-container { text-align: center; margin: 1rem 0; background: #f0f0f0; padding: 1rem; border-radius: 6px; }
-        .screenshot { max-height: 350px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); object-fit: contain; }
-        .btn { display: inline-block; background: #1a1a2e; color: #fff; padding: 0.6rem 1.2rem; text-align: center; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: auto; }
-        .btn:hover { background: #00fff0; color: #1a1a2e; transition: 0.3s; }
-        footer { text-align: center; padding: 2rem; background: #1a1a2e; color: #fff; margin-top: 3rem; }
+        /* Modern CSS Variables for Easy Customization */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --accent-neon: #00fff0;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --device-frame: #334155;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg-dark); 
+        }
+
+        /* Hero / Header Section */
+        header { 
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            text-align: center; 
+            padding: 5rem 1rem; 
+            border-bottom: 1px solid rgba(0, 255, 240, 0.1);
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: var(--accent-neon);
+            box-shadow: 0 0 15px var(--accent-neon);
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 3.2rem; 
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-main); 
+        }
+
+        header h1 span {
+            color: var(--accent-neon);
+            text-shadow: 0 0 20px rgba(0, 255, 240, 0.3);
+        }
+
+        header p { 
+            margin-top: 10px; 
+            font-size: 1.3rem; 
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Container & Layout */
+        .container { 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 4rem 1.5rem; 
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 { 
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-main); 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '//';
+            color: var(--accent-neon);
+            font-weight: bold;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        /* Grid & Project Cards */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 2.5rem; 
+            margin-top: 2rem; 
+        }
+
+        .card { 
+            background: var(--bg-card); 
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden; 
+            padding: 2rem; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 240, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Tech Badges */
+        .tags {
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge { 
+            background: rgba(0, 255, 240, 0.08); 
+            color: var(--accent-neon); 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.8rem; 
+            font-weight: 600;
+            margin-right: 6px; 
+            margin-bottom: 6px;
+            display: inline-block; 
+            border: 1px solid rgba(0, 255, 240, 0.15);
+        }
+
+        /* STUNNING SMARTPHONE DEVICE MOCKUP CONTAINER */
+        .screenshot-container { 
+            text-align: center; 
+            margin: 1.5rem 0; 
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 200px;
+            height: 400px;
+            border: 8px solid var(--device-frame);
+            border-radius: 28px;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        /* Phone Camera Notch simulation */
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 15px;
+            background: var(--device-frame);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 10;
+        }
+
+        .screenshot { 
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .screenshot {
+            transform: scale(1.03);
+        }
+
+        /* Dynamic Buttons */
+        .btn { 
+            display: inline-block; 
+            background: transparent;
+            color: var(--accent-neon); 
+            padding: 0.75rem 1.5rem; 
+            text-align: center; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+            border: 1px solid var(--accent-neon);
+            margin-top: auto; 
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover { 
+            background: var(--accent-neon); 
+            color: var(--bg-dark); 
+            box-shadow: 0 0 15px rgba(0, 255, 240, 0.4);
+        }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 3rem; 
+            background: #090d16; 
+            color: var(--text-muted); 
+            margin-top: 5rem; 
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Mahnoor Naeem</h1>
+        <h1><span>Mahnoor Naeem</span></h1>
         <p>IT Student & Mobile App Developer</p>
     </header>
 
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I am a passionate IT Bachelors student specializing in mobile application development. Through my intensive training at the Bano Qabil Institute, I have built practical experience designing, architecting, and deploying functional mobile applications. Check out my core coursework projects below.</p>
+            <p class="about-text">
+                Hello! I am a passionate IT Bachelors student specializing in mobile application development. Through intensive training at the Bano Qabil Institute, I have gained hands-on engineering experience designing, architecting, and deploying functional mobile applications. Explore my core development coursework projects below.
+            </p>
         </section>
 
         <section id="projects">
-            <h2>My Course Projects (4)</h2>
+            <h2>Featured Course Projects</h2>
             <div class="grid">
 
-                <!-- PROJECT 1 -->
                 <div class="card">
                     <div class="project-content">
-                        <h3>Project 1: [Code AI Assistant]</h3>
-                        <p><strong>Description:</strong> This app only answer to the programming question that helps the student in their programming course.</p>
-                        <p>
+                        <h3>Code AI Assistant</h3>
+                        <p>An intelligent application engineered exclusively to resolve programming queries, helping students navigate and debug their computer science coursework seamlessly.</p>
+                        <div class="tags">
                             <span class="tech-badge">Flutter / Dart</span>
                             <span class="tech-badge">Firebase</span>
                             <span class="tech-badge">Router API</span>
-                        </p>
+                        </div>
                         <div class="screenshot-container">
-                            <img src="images/app2.png" alt="App 1 Screenshot" class="screenshot">
+                            <div class="phone-mockup">
+                                <img src="images/app2.png" alt="Code AI Assistant Screenshot" class="screenshot">
+                            </div>
                         </div>
                     </div>
-                    <!-- Paste your real GitHub project link below -->
                     <a href="https://github.com/qmahnoor817-netizen/code-ai-assistant" class="btn" target="_blank">View Source Code</a>
                 </div>
 
-                <!-- PROJECT 2 -->
                 <div class="card">
                     <div class="project-content">
-                        <h3>Project 2: [Fitness and Workout]</h3>
-                        <p><strong>Description:</strong> This app helps you in your workout and track your progress. You can make your workout planner and can genearte AI tips. </p>
-                        <p>
+                        <h3>Fitness & Workout Planner</h3>
+                        <p>A comprehensive tracking application featuring a customized workout planner. Integrated with backend modules to generate dynamic, tailored AI fitness tips.</p>
+                        <div class="tags">
                             <span class="tech-badge">Flutter / Dart</span>
                             <span class="tech-badge">Firebase</span>
                             <span class="tech-badge">Router API</span>
-                        </p>
+                        </div>
                         <div class="screenshot-container">
-                            <img src="images/app3.png" alt="App 2 Screenshot" class="screenshot">
+                            <div class="phone-mockup">
+                                <img src="images/app3.png" alt="Fitness App Screenshot" class="screenshot">
+                            </div>
                         </div>
                     </div>
                     <a href="https://github.com/qmahnoor817-netizen/fitness-and-workout" class="btn" target="_blank">View Source Code</a>
                 </div>
 
-                <!-- PROJECT 3 -->
                 <div class="card">
                     <div class="project-content">
-                        <h3>Project 3: [Notes App]</h3>
-                        <p><strong>Description:</strong> You can secure your assignments and important task here and categorize them. It is secure due to firebase authentication no user can access your notes. You can also summarize it through AI feature.</p>
-                        <p>
+                        <h3>Secure Notes & AI Summarizer</h3>
+                        <p>A secure utility app designed to categorize academic assignments. Built with strict user isolation via Firebase Authentication and featuring instant note summarization via Gemini AI.</p>
+                        <div class="tags">
                             <span class="tech-badge">Flutter / Dart</span>
                             <span class="tech-badge">Firebase</span>
                             <span class="tech-badge">Gemini API</span>
-                        </p>
+                        </div>
                         <div class="screenshot-container">
-                            <img src="images/app4.png" alt="App 3 Screenshot" class="screenshot">
+                            <div class="phone-mockup">
+                                <img src="images/app4.png" alt="Notes App Screenshot" class="screenshot">
+                            </div>
                         </div>
                     </div>
                     <a href="https://github.com/qmahnoor817-netizen/bq-final-project" class="btn" target="_blank">View Source Code</a>
                 </div>
 
-                <!-- PROJECT 4 -->
                 <div class="card">
                     <div class="project-content">
-                        <h3>Project 4: [Expense Tracker]</h3>
-                        <p><strong>Description:</strong> You can track your expenses through this app. It updates you about the expenses you spend and the remaining balance that you have left now.</p>
-                        <p>
+                        <h3>Smart Expense Tracker</h3>
+                        <p>A lightweight, localized financial utility app that monitors expenditures, providing real-time dynamic calculations on remaining wallet balances.</p>
+                        <div class="tags">
                             <span class="tech-badge">Flutter / Dart</span>
-                        
-                        </p>
+                            <span class="tech-badge">UI/UX Styling</span>
+                        </div>
                         <div class="screenshot-container">
-                            <img src="images/app5.png" alt="App 4 Screenshot" class="screenshot">
+                            <div class="phone-mockup">
+                                <img src="images/app5.png" alt="Expense Tracker Screenshot" class="screenshot">
+                            </div>
                         </div>
                     </div>
                     <a href="https://github.com/qmahnoor817-netizen/expense-tracker-app" class="btn" target="_blank">View Source Code</a>
@@ -112,7 +334,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Mahnoor Naeem. All Rights Reserved.</p>
+        <p>&copy; 2026 Mahnoor Naeem. Powered by Netlify.</p>
     </footer>
 
 </body>
